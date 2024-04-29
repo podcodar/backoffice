@@ -6,7 +6,7 @@
 # This workflow will install Deno then run Deno lint and test.
 # For more information see: https://github.com/denoland/setup-deno
 
-name: Run tests and Deploy to Deno Deploy
+name: Run Quality Gateway
 
 on:
   push:
@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write # Needed for auth with Deno Deploy
 
 jobs:
   test:
@@ -40,19 +39,3 @@ jobs:
 
       - name: Run tests
         run: deno task test
-
-      - name: Install Danet CLI
-        run: deno install --allow-read --allow-write --allow-run --allow-env -n danet https://deno.land/x/danet_cli/main.ts
-
-      - name: Remove old builds
-        run: rm -rf bundle
-
-      - name: Bundle app with danet CLI
-        run: danet bundle run.ts
-
-      - name: Deploy to Deno Deploy
-        uses: denoland/deployctl@v1
-        with:
-          project: danet-starter
-          entrypoint: run.js
-          root: bundle
