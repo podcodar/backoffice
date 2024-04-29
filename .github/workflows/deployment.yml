@@ -23,15 +23,12 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Install Danet CLI
-        run: deno install --allow-read --allow-write --allow-run --allow-env -n danet https://deno.land/x/danet_cli/main.ts
-
       - name: Bundle app with danet CLI
-        run: mkdir bundle && danet bundle run.ts
+        run: deno task compile
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: podcodar-backoffice
-          entrypoint: run.js
-          root: bundle
+          entrypoint: backoffice
+          root: dist
