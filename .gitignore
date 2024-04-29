@@ -2,3 +2,8 @@
 !.env.example
 node_modules
 
+# build
+dist/
+
+# local deno kv db
+*.db*
