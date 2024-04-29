@@ -20,9 +20,11 @@ export class AppController {
     return new Date().toString();
   }
 
+  @Render('visits')
   @Get('/visits')
-  async visits() {
+  async visits(@Query('name') name = 'visitant') {
     await this.counterService.addVisit();
-    return { visits: await this.counterService.getVisits() };
+    const visits = await this.counterService.getVisits();
+    return { visits, name };
   }
 }

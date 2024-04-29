@@ -40,7 +40,3 @@ Deno.test('db', async (t) => {
   application.close();
   db.close();
 });
-
-function def(cb: () => void | Promise<void>) {
-  setTimeout(cb, 0);
-}
