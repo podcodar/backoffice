@@ -4,7 +4,9 @@ import { DanetApplication } from 'danet/mod.ts';
 import { AppModule } from '~/app.module.ts';
 import { loggerMiddleware } from '~/middlewares/logger.middleware.ts';
 
-await load();
+await load({
+  allowEmptyValues: true,
+});
 
 // import { SpecBuilder, SwaggerModule } from 'danet_swagger/mod.ts';
 export const bootstrap = async () => {
