@@ -1,10 +1,10 @@
-import { load } from '@std/dotenv';
+import { loadSync } from '@std/dotenv';
 
 import { DanetApplication } from 'danet/mod.ts';
 import { AppModule } from '~/app.module.ts';
 import { loggerMiddleware } from '~/middlewares/logger.middleware.ts';
 
-await load({
+loadSync({
   allowEmptyValues: true,
 });
 
