@@ -1,9 +1,5 @@
 import { Module } from 'danet/mod.ts';
-
-export type Database = Deno.Kv;
-
-const DB_PATH = './deno.db';
-export const DB_CONNECTION = 'DATABASE';
+import { DB_CONNECTION, DB_PATH } from '~/services/database/db.shared.ts';
 
 const createConnection = async () => {
   return await Deno.openKv(DB_PATH);
