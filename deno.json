@@ -16,8 +16,6 @@
   "importMap": "./import_map.json",
   "tasks": {
     "launch-server": "deno run --watch --allow-net --allow-read --allow-write --unstable --allow-env run.ts",
-    "test": "deno test -A --unstable spec",
-    "db:generate": "deno run --allow-env --allow-write --allow-read --allow-sys --allow-run npm:drizzle-kit generate:sqlite"
-    "db:migrate": "deno run --allow-net --allow-env --allow-read --allow-write ./src/migrate.ts"
+    "test": "deno test -A --unstable spec"
   }
 }
