@@ -13,17 +13,10 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
+  "importMap": "./import_map.json",
   "tasks": {
     "compile": "deno compile --allow-net --allow-read --allow-write --allow-env --unstable-kv -o dist/backoffice run.ts",
     "launch-server": "deno run --watch --allow-net --allow-read --allow-write --unstable-kv --allow-env run.ts",
     "test": "deno test --allow-net --allow-env --allow-read --allow-write --unstable-kv src"
   },
-  "imports": {
-    "~/": "./src/",
-
-    "@std/dotenv": "jsr:@std/dotenv@^0.224.0",
-
-    "danet_swagger/": "https://deno.land/x/danet_swagger/",
-    "danet/": "https://deno.land/x/danet@2.4.0/"
-  }
 }
