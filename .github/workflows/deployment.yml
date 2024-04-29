@@ -23,12 +23,12 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Bundle app with danet CLI
+      - name: Compile app
         run: deno task compile
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: podcodar-backoffice
+          project: backoffice
           entrypoint: backoffice
           root: dist
