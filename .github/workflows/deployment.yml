@@ -23,12 +23,9 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Compile app
-        run: deno task compile
-
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: backoffice
-          entrypoint: backoffice
-          root: dist
+          entrypoint: run.ts
+          root: .
