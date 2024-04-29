@@ -1,7 +1,11 @@
-import 'dotenv/load.ts';
+import { load } from '@std/dotenv';
+
 import { DanetApplication } from 'danet/mod.ts';
 import { AppModule } from '~/app.module.ts';
 import { loggerMiddleware } from '~/middlewares/logger.middleware.ts';
+
+await load();
+
 // import { SpecBuilder, SwaggerModule } from 'danet_swagger/mod.ts';
 export const bootstrap = async () => {
   const application = new DanetApplication();
