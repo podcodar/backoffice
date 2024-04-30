@@ -7,7 +7,7 @@ export class AppController {
   constructor(
     private readonly counterService: CounterService,
   ) {
-    console.log(injector.get(CounterService));
+    this.counterService = injector?.get(CounterService);
     console.log(injector.getAll());
   }
 
