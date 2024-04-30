@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from 'danet/mod.ts';
 import { Render } from 'danet/src/renderer/decorator.ts';
-import { CounterService } from '~/services/counter/counter.service.ts';
+import { CounterService } from './services/counter/counter.service.ts';
 
 @Controller('')
 export class AppController {
