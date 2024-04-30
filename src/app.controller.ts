@@ -1,6 +1,7 @@
 import { Controller, Get, Inject, injector, Query } from 'danet/mod.ts';
 import { Render } from 'danet/src/renderer/decorator.ts';
 import { CounterService } from './services/counter/counter.service.ts';
+import { DB_CONNECTION } from '~/services/database/db.shared.ts';
 
 @Controller('')
 export class AppController {
@@ -26,6 +27,9 @@ export class AppController {
   @Render('visits')
   @Get('/visits')
   async visits(@Query('name') name = 'visitant') {
+    console.log(injector.get(DB_CONNECTION));
+    console.log(injector.get(CounterService));
+    console.log(injector.getAll());
     await this.counterService.addVisit();
     const visits = await this.counterService.getVisits();
     return { visits, name };
