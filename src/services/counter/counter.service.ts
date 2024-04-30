@@ -1,6 +1,6 @@
 import { Inject, Injectable } from 'danet/mod.ts';
-import { DB_CONNECTION } from '~/services/database/db.shared.ts';
-import type { Database } from '~/services/database/db.shared.ts';
+import { DB_CONNECTION } from '../../services/database/db.shared.ts';
+import type { Database } from '../../services/database/db.shared.ts';
 
 @Injectable()
 export class CounterService {
