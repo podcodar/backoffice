@@ -28,10 +28,11 @@ export class AppController {
   @Get('/visits')
   async visits(@Query('name') name = 'visitant') {
     console.log(injector.get(DB_CONNECTION));
-    console.log(injector.get(CounterService));
+    console.log();
+    const counterService = injector.get(CounterService);
     console.log(injector.getAll());
-    await this.counterService.addVisit();
-    const visits = await this.counterService.getVisits();
+    await counterService.addVisit();
+    const visits = await counterService.getVisits();
     return { visits, name };
   }
 }
