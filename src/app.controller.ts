@@ -26,11 +26,13 @@ export class AppController {
   @Render('visits')
   @Get('/visits')
   async visits(@Query('name') name = 'visitant') {
-    const counterService = injector.get(CounterService);
+    const counterService = injector?.get(CounterService);
     const map = injector.getAll();
+
     console.log(this.counterService);
     console.log({ map });
     console.log(map?.get(CounterService));
+
     await counterService.addVisit();
     const visits = await counterService.getVisits();
     return { visits, name };
