@@ -1,11 +1,11 @@
-import { Controller, Get, Inject, injector, Query } from 'danet/mod.ts';
+import { Controller, Get, injector, Query } from 'danet/mod.ts';
 import { Render } from 'danet/src/renderer/decorator.ts';
 import { CounterService } from './services/counter/counter.service.ts';
 
 @Controller('')
 export class AppController {
   constructor(
-    @Inject() private readonly counterService: CounterService,
+    private readonly counterService: CounterService,
   ) {
     console.log(injector.get(CounterService));
     console.log(injector.getAll());
@@ -28,7 +28,8 @@ export class AppController {
   async visits(@Query('name') name = 'visitant') {
     const counterService = injector.get(CounterService);
     const map = injector.getAll();
-    console.log(map);
+    console.log(this.counterService);
+    console.log({ map });
     console.log(map?.get(CounterService));
     await counterService.addVisit();
     const visits = await counterService.getVisits();
