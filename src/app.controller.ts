@@ -1,12 +1,15 @@
-import { Controller, Get, Query } from 'danet/mod.ts';
+import { Controller, Get, Inject, injector, Query } from 'danet/mod.ts';
 import { Render } from 'danet/src/renderer/decorator.ts';
 import { CounterService } from './services/counter/counter.service.ts';
 
 @Controller('')
 export class AppController {
   constructor(
-    private readonly counterService: CounterService,
-  ) {}
+    @Inject() private readonly counterService: CounterService,
+  ) {
+    console.log(injector.get(CounterService));
+    console.log(injector.getAll());
+  }
 
   @Render('hello')
   @Get('/')
