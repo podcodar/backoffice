@@ -1,6 +1,6 @@
-import { Cron, Inject, Injectable } from 'danet/mod.ts';
-import { DB_CONNECTION } from '../../services/database/db.shared.ts';
-import type { Database } from '../../services/database/db.shared.ts';
+import { Cron, CronExpression, Inject, Injectable } from 'danet/mod.ts';
+import { DB_CONNECTION } from '~/services/database/db.shared.ts';
+import type { Database } from '~/services/database/db.shared.ts';
 
 @Injectable()
 export class CounterService {
@@ -10,8 +10,8 @@ export class CounterService {
     @Inject(DB_CONNECTION) private readonly db: Database,
   ) {}
 
-  @Cron('* * * * *')
-  log() {
+  @Cron(CronExpression.EVERY_MINUTE)
+  asdasd() {
     console.log(new Date());
   }
 
