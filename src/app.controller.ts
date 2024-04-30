@@ -31,6 +31,7 @@ export class AppController {
     console.log();
     const counterService = injector.get(CounterService);
     console.log(injector.getAll());
+    console.log(injector.getAll().get(CounterService));
     await counterService.addVisit();
     const visits = await counterService.getVisits();
     return { visits, name };
