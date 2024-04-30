@@ -10,10 +10,7 @@ primary_region = "gru"
 
 [env]
   PORT = "8080"
-  DB_PATH = "./deno.db"
-
-[processes]
-  app = ""
+  DB_PATH = "/data/deno.db"
 
 [http_service]
   internal_port = 8080
@@ -24,5 +21,5 @@ primary_region = "gru"
   processes = ["app"]
 
 [mounts]
-  source="backoffice_volume"
-  destination="/deno-dir"
+  source="backoffice"
+  destination="/data"

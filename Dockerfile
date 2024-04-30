@@ -35,4 +35,6 @@ WORKDIR ${DENO_DIR}
 
 COPY --from=build /deno-dir/views/ views
 
+VOLUME /data
+
 CMD ["/bin/backoffice"]
