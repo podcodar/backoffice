@@ -1,6 +1,5 @@
-import { Cron, CronExpression, Injectable, Logger } from 'danet/mod.ts';
+import { Cron, CronExpression, Logger } from 'danet/mod.ts';
 
-@Injectable()
 export class HealthCheckService {
   private logger = new Logger(HealthCheckService.name);
 
