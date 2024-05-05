@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, injector, Logger, Query } from 'danet/mod.ts';
+import { Controller, Get, Logger, Query } from 'danet/mod.ts';
 import { Render } from 'danet/src/renderer/decorator.ts';
 import { CounterService } from '~/services/counter/counter.service.ts';
 
@@ -6,14 +6,11 @@ import { CounterService } from '~/services/counter/counter.service.ts';
 export class VisitsController {
   private logger = new Logger(VisitsController.name);
 
-  constructor(
-    @Inject() private counterService: CounterService,
-  ) {}
+  constructor(private counterService: CounterService) {}
 
   @Render('visits')
   @Get('/')
   async visits(@Query('name') name = 'visitant') {
-    this.counterService = injector.get(CounterService);
     this.logger.log('rendering visits' + this.counterService);
     await this.counterService.addVisit();
     const visits = await this.counterService.getVisits();
